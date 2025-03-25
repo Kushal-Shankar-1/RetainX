@@ -74,6 +74,6 @@ RetainX successfully predicts churn and helps design targeted retention strategi
 ---
 
 ## 9. References  
-- Telco Customer Churn Dataset (Kaggle)  
+- [Telco Customer Churn dataset (IBM Sample on Kaggle)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)  
 - XGBoost and SHAP documentation  
 - Academic literature on churn prediction models

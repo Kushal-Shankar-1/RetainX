@@ -32,7 +32,7 @@ RetainX is a predictive analytics tool designed to help subscription-based busin
 ---
 
 ## 📚 Dataset  
-Telco Customer Churn dataset (IBM Sample on Kaggle)  
+[Telco Customer Churn dataset (IBM Sample on Kaggle)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)  
 
 ---
 
@@ -44,7 +44,7 @@ Telco Customer Churn dataset (IBM Sample on Kaggle)
 ---
 
 ## ✅ Key Findings  
-- Customers with month-to-month contracts and high monthly charges are at highest risk of churn.  
+- Customers with month-to-month contracts and high monthly charges are at the highest risk of churn.  
 - Electronic check payment method users are more prone to churn.  
 - Tenure is a strong retention factor.  
 
@@ -52,7 +52,7 @@ Telco Customer Churn dataset (IBM Sample on Kaggle)
 
 ## 📥 Reproducibility  
 ```bash
-git clone <your-github-repo-url>
+git clone https://github.com/Kushal-Shankar-1/RetainX.git
 cd RetainX_Final_Submission/
 pip install -r requirements.txt
 jupyter lab

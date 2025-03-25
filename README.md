@@ -1,59 +1,65 @@
-# RetainX
 
-## 📈 Predictive Customer Churn Analysis and Retention Strategy Platform
-
+# RetainX — Customer Churn Prediction for Subscription-Based Services  
 **Team 7: Colorado Blue Spruce**  
-Kushal Shankar | Ashmitha Appandaraju | Tej Sidda | Ronak Vadhaiya
+Kushal Shankar | Ashmitha Appandaraju | Tej Sidda | Ronak Vadhaiya  
+
+## 📈 Project Overview  
+RetainX is a predictive analytics tool designed to help subscription-based businesses proactively identify customers likely to churn and implement targeted retention strategies.
 
 ---
 
-### 🔎 About RetainX
-RetainX is a predictive analytics solution designed to help subscription-based businesses proactively identify customers at risk of churn and implement targeted retention strategies.
+## 📂 Project Structure  
+| Folder        | Contents                                                                    |
+|---------------|-----------------------------------------------------------------------------|
+| `data/`       | Preprocessed Telco Customer Churn dataset                                   |
+| `models/`     | Saved XGBoost best model for interpretation                                 |
+| `notebooks/`  | Jupyter notebooks for each stage: EDA, preprocessing, modeling, interpretation |
+| `results/`    | Visuals and plots generated from the notebooks (PNG files)                  |
+| `exports/`    | PDF exports of each notebook and the presentation                  |
+| `report/`     | Final project report                                                        |
+| `team_testing_checklist.md` | Documented testing done by each team member                                      |
 
 ---
 
-### 📂 Project Structure
-- **data/** — Contains the dataset  
-- **notebooks/** — Jupyter notebooks for each step: EDA, preprocessing, feature engineering, modeling, and insights  
-- **results/** — Plots, evaluation metrics, and feature importance charts  
-- **report/** — Final report drafts and references  
-- **presentation/** — Presentation template and final deck  
+## ✅ Workflow Summary  
+- Data Cleaning & EDA  
+- Preprocessing & Feature Engineering  
+- Baseline Models (Logistic Regression, Decision Tree)  
+- Advanced Modeling (Random Forest, XGBoost)  
+- SHAP Explainability  
+- Business Insights and Recommendations  
 
 ---
 
-### ✅ Key Features
-- Thorough exploratory data analysis  
-- Feature engineering for actionable insights  
-- Baseline models: Logistic Regression, Decision Tree  
-- Advanced models: Random Forest, XGBoost with hyperparameter tuning  
-- Addressed class imbalance using SMOTE  
-- Model interpretability with SHAP plots  
-- Business recommendations for churn reduction  
+## 📚 Dataset  
+Telco Customer Churn dataset (IBM Sample on Kaggle)  
 
 ---
 
-### 💻 Technologies Used
-- Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, XGBoost, Imbalanced-learn)  
-- JupyterLab  
-- SHAP for interpretability  
+## 🛠 Technologies Used  
+- Python: Pandas, NumPy, Scikit-learn, XGBoost, SHAP, Matplotlib, Seaborn  
+- Jupyter Notebooks  
+- Joblib (for model persistence)
 
 ---
 
-### 📊 Dataset
-**Telco Customer Churn Dataset** (IBM sample, via Kaggle)  
-> Link: [Telco Customer Churn on Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+## ✅ Key Findings  
+- Customers with month-to-month contracts and high monthly charges are at highest risk of churn.  
+- Electronic check payment method users are more prone to churn.  
+- Tenure is a strong retention factor.  
 
 ---
 
-### 🚀 How to Run
-1. Clone this repo:  
+## 📥 Reproducibility  
 ```bash
-git clone https://github.com/Kushal-Shankar-1/RetainX.git
-```
-2. Create virtual environment:
-```bash
-python3 -m venv churn_env
-source churn_env/bin/activate
+git clone <your-github-repo-url>
+cd RetainX_Final_Submission/
 pip install -r requirements.txt
+jupyter lab
 ```
-3. Run each notebook sequentially in **notebooks/**
+Then run notebooks in order inside `/notebooks`.
+
+---
+
+## ✅ Conclusion  
+RetainX offers an end-to-end churn prediction and analysis workflow and provides actionable business recommendations for proactive retention strategies.

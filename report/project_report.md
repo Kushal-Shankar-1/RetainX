@@ -1,79 +1,156 @@
 
-# CS6220 - Data Mining Techniques Final Project Report  
-## Project Title: RetainX — Customer Churn Prediction for Subscription-Based Services  
-**Team 7: Colorado Blue Spruce**  
-- Kushal Shankar  
-- Ashmitha Appandaraju  
-- Tej Sidda  
-- Ronak Vadhaiya  
+# CS6220 - Data Mining Techniques
+## Final Project Report
+
+**Project Title:** RetainX: Customer Churn Prediction for Subscription-Based Services  
+**Team:** Colorado Blue Spruce (Team 7)  
+
+**Team Members:**  
+- Kushal Shankar – shankar.ku@northeastern.edu  
+- Ashmitha Appandaraju – appandaraju.a@northeastern.edu  
+- Tej Sidda – sidda.t@northeastern.edu  
+- Ronak Vadhaiya – vadhaiya.r@northeastern.edu  
 
 ---
 
 ## 1. Abstract
-Customer churn is a major challenge for subscription-based businesses. In this project, we built RetainX, a predictive analytics solution using the Telco Customer Churn dataset. We performed exploratory data analysis, preprocessing, feature engineering, and built baseline and advanced models (Random Forest and XGBoost). SHAP explainability was used to interpret model predictions and derive business recommendations.
+
+Customer churn poses a critical threat to subscription-driven businesses. Companies often invest heavily in acquiring new customers, making retention strategies more crucial than ever. This project, **RetainX**, leverages machine learning to predict customer churn using the **Telco Customer Churn** dataset from IBM (via Kaggle). We conduct extensive data cleaning, feature engineering, baseline and advanced modeling, and SHAP-based explainability to derive business insights. The models developed can enable proactive churn mitigation and drive customer-centric business decisions.
 
 ---
 
-## 2. Introduction  
-### i. Problem Statement  
-Churn prediction enables proactive retention strategies and reduces revenue loss.  
-### ii. Importance  
-Reducing churn by even 1% leads to significant cost savings for businesses.  
-### iii. Background  
-We used proven machine learning techniques and explainability methods to build interpretable churn prediction models.
+## 2. Introduction
+
+### i. Problem Statement
+Subscription churn results in direct revenue loss and increased customer acquisition costs. In industries like telecom and SaaS, churn rates range from 10–30% annually, drastically affecting profits and scalability. Predicting churn proactively allows businesses to design customer-specific retention strategies and reduce attrition.
+
+### ii. Importance of Solving This Problem
+Retaining customers is significantly more cost-effective than acquiring new ones. Even a 1% reduction in churn can yield millions in savings for large enterprises. With the ability to identify churn risk early, companies can customize interventions like discounts, improved service, or engagement programs.
+
+### iii. Background and Literature Survey
+Prior research has utilized statistical and machine learning models to detect churn patterns based on demographics, contract types, and usage. Algorithms like Logistic Regression, Decision Trees, Random Forests, and XGBoost have shown high efficacy when paired with proper preprocessing and imbalance mitigation. Interpretability methods like SHAP are also crucial in real-world business deployment.
 
 ---
 
-## 3. Methodology  
-- **Data Preprocessing**: Handled nulls, encoded categorical features, scaled numerical columns.  
-- **EDA**: Visualized churn patterns across contract types, payment methods, and service usage.  
-- **Feature Engineering**: Created tenure groups and average monthly charge features.  
-- **Modeling**:  
-  - Baseline: Logistic Regression, Decision Tree  
-  - Advanced: Random Forest, XGBoost with hyperparameter tuning  
-- **Class imbalance**: Addressed using SMOTE.  
-- **Evaluation Metrics**: Accuracy, Precision, Recall, F1, ROC-AUC.  
-- **Interpretation**: Used SHAP to explain feature importance.
+## 3. Methodology
+
+### Data Source
+- **Dataset:** [Telco Customer Churn – Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+- **Rows:** 7,043 customers  
+- **Target Variable:** `Churn` (Yes/No)
+- **Features:** Demographics, subscription services, tenure, billing and charges, contract details.
+
+### Data Cleaning & EDA
+- Converted `TotalCharges` to numeric and handled missing values using the mean.
+- Visualized churn patterns across services, contract types, and tenure using bar charts and heatmaps.
+- Identified high churn among month-to-month contracts and electronic check users.
+- Saved correlation heatmap as a PNG for reporting.
+
+### Feature Engineering
+- Created `tenure_group` buckets (e.g., 0–12, 12–24 months, etc.)
+- Engineered `avg_monthly_charge` = `TotalCharges` / `tenure`
+- Applied one-hot encoding to categorical features (e.g., InternetService, PaymentMethod)
+- Standardized numerical features (optional) and dropped redundant columns
+
+### Handling Imbalance
+- Applied **SMOTE** oversampling on the training set after the train-test split to balance churn classes.
+
+### Modeling Strategy
+- **Baseline:** Logistic Regression
+- **Advanced Models:** Random Forest, Decision Tree, and XGBoost
+- **Evaluation Metrics:** Accuracy, Precision, Recall, F1 Score, ROC-AUC
+- **Hyperparameter Tuning:** GridSearchCV for XGBoost
+
+### Explainability
+- Used SHAP values to evaluate feature importance for interpretability.
+- Visualized feature impact and global summary to support business strategies.
 
 ---
 
-## 4. Results  
-| Model             | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
+## 4. Code Explanation
+
+All implementation is in Python, structured into modular and reproducible Jupyter Notebooks:
+
+### Notebooks Overview
+- `data_cleaning_eda.ipynb`: Cleaning, imputation, EDA, correlation.
+- `data_preprocessing.ipynb`: Feature encoding, numeric conversions, train-test split.
+- `feature_engineering_baseline_models.ipynb`: Feature creation + baseline model evaluation.
+- `advanced_modeling_and_evaluation.ipynb`: SMOTE, hyperparameter tuning (GridSearchCV), XGBoost.
+- `interpretation_and_business_insights.ipynb`: SHAP values, insights, and business actionability.
+
+### Key Libraries Used
+- `pandas`, `numpy`, `matplotlib`, `seaborn` – Data analysis and visualization
+- `scikit-learn` – ML models, preprocessing, evaluation metrics
+- `imbalanced-learn` – SMOTE
+- `xgboost` – Gradient boosting classifier
+- `shap` – Model explainability
+
+### Folder Structure
+```
+project_root/
+│
+├── data/                        # Raw and preprocessed CSVs
+├── notebooks/                  # Jupyter notebooks for each phase
+├── models/                     # Saved model pickle files (.pkl)
+├── results/                    # Saved visualizations and PDF exports
+├── report/                     # Final project report
+├── presentation/               # Project slides
+├── requirements.txt            # Python dependencies
+├── README.md                   # Project overview
+└── team_testing_checklist.md   # Notebook testing records
+```
+
+---
+
+## 5. Results
+
+| Model              | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
 |-------------------|----------|-----------|--------|----------|---------|
-| Logistic Regression | 0.80     | 0.68      | 0.61   | 0.64     | 0.72    |
-| Decision Tree     | 0.81     | 0.69      | 0.63   | 0.66     | 0.74    |
-| Random Forest     | 0.85     | 0.75      | 0.69   | 0.72     | 0.80    |
-| XGBoost (best)   | 0.87     | 0.78      | 0.72   | 0.75     | 0.82    |
+| Logistic Regression | 0.802   | 0.720     | 0.600  | 0.654    | 0.837   |
+| Random Forest       | 0.832   | 0.750     | 0.678  | 0.712    | 0.862   |
+| XGBoost (Tuned)     | **0.847** | **0.770** | **0.700** | **0.733** | **0.878** |
+
+- SMOTE improved recall significantly by balancing the class distribution.
+- XGBoost with GridSearch outperformed all others in terms of both ROC-AUC and F1.
 
 ---
 
-## 5. Discussion  
-- High churn observed among month-to-month contracts and electronic check payment customers.  
-- Higher monthly charges correlate with churn risk.  
-- SHAP confirmed contract type, tenure, and billing method as key features.
+## 6. Discussion
+
+- **Key Churn Drivers Identified (via SHAP):**
+  - Month-to-month contracts
+  - High `MonthlyCharges` and low `tenure`
+  - Electronic check payment method
+  - Absence of internet services like security or backup
+
+- **Business Interpretation:**
+  - Customers on flexible plans with high charges are more likely to churn.
+  - Bundled service offerings, tenure-based discounts, and switching payment methods may improve retention.
+
+- **Visualization Highlights:**
+  - Bar charts of churn across contract types and services.
+  - Correlation heatmap linking churn with billing and service usage.
+  - SHAP summary and bar plots showing global feature importance.
 
 ---
 
-## 6. Business Recommendations  
-- Target month-to-month customers with loyalty incentives.  
-- Encourage long-term contracts and auto-pay billing.  
-- Offer discounts to high-monthly-charge, short-tenure customers.
+## 7. Future Work
+
+- Include real-time churn prediction using live CRM data.
+- Integrate NLP for churn signals from customer support conversations.
+- Add time-series based survival analysis for churn prediction over time.
 
 ---
 
-## 7. Conclusion  
-RetainX successfully predicts churn and helps design targeted retention strategies for subscription-based businesses.
+## 8. Conclusion
+
+Our project successfully demonstrates the application of machine learning for churn prediction using a well-structured, end-to-end pipeline. With explainability at its core, **RetainX** offers actionable intelligence for customer retention, enabling businesses to target at-risk users early and reduce churn effectively.
 
 ---
 
-## 8. Future Work  
-- Real-time churn prediction dashboard  
-- Incorporate customer sentiment analysis  
-- Expand to other industries beyond telecom
+## 9. References
 
----
-
-## 9. References  
-- [Telco Customer Churn dataset (IBM Sample on Kaggle)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)  
-- XGBoost and SHAP documentation  
-- Academic literature on churn prediction models
+- [Telco Customer Churn Dataset – Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+- Scikit-learn Documentation – https://scikit-learn.org/
+- XGBoost Documentation – https://xgboost.readthedocs.io/
+- SHAP Documentation – https://shap.readthedocs.io/

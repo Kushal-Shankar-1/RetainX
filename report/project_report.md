@@ -1,6 +1,6 @@
 
 # CS6220 - Data Mining Techniques
-## Final Project Report
+## RetainX - Final Project Report
 
 **Project Title:** RetainX: Customer Churn Prediction for Subscription-Based Services  
 **Team:** Colorado Blue Spruce (Team 7)  

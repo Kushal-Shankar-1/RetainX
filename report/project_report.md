@@ -180,3 +180,49 @@ In summary, RetainX is more than just a churn prediction tool — it is a practi
 - [Scikit-learn: Machine Learning in Python](https://scikit-learn.org/)  
 - [SHAP (SHapley Additive exPlanations) – Model Interpretability](https://shap.readthedocs.io/)  
 - [XGBoost: Scalable and Flexible Gradient Boosting](https://xgboost.readthedocs.io/)
+
+---
+
+
+## Annex-A: Team Contributions and Section Completion
+
+### Individual Contributions
+
+**Kushal Shankar**  
+- Led the overall implementation and coordination across all project stages  
+- Developed and evaluated the machine learning models (Logistic Regression, Random Forest, XGBoost)  
+- Integrated SHAP explainability and managed final report synthesis and GitHub versioning  
+
+**Ashmitha Appandaraju**  
+- Conducted data cleaning, preprocessing, and exploratory data analysis  
+- Created visualizations and helped interpret churn patterns from EDA  
+- Designed the team’s final presentation slides and contributed to the Discussion and Future Work sections  
+
+**Tej Sidda**  
+- Implemented feature engineering (`tenure_group`, `avg_monthly_charge`) and categorical encoding  
+- Assisted with baseline modeling and supported Results documentation and metric analysis  
+
+**Ronak Vadhaiya**  
+- Applied SMOTE for handling class imbalance and performed hyperparameter tuning for XGBoost
+- Contributed to writing the Introduction and Data sections of the report
+
+_All team members reviewed notebooks, collaborated on testing, and contributed to the report and video presentation. Each member ensured active involvement at every stage of the pipeline._
+
+---
+
+### Section Completion Summary
+
+| Section                  | Included | Notes |
+|--------------------------|----------|-------|
+| Abstract                 | ✅ Yes   | Complete |
+| Introduction             | ✅ Yes   | Complete |
+| Methodology              | ✅ Yes   | Complete |
+| Code Explanation         | ✅ Yes   | Complete |
+| Results                  | ✅ Yes   | Complete |
+| Discussion               | ✅ Yes   | Complete |
+| Future Work              | ✅ Yes   | Complete |
+| Conclusion               | ✅ Yes   | Complete |
+| References               | ✅ Yes   | Complete |
+| Annex-A                  | ✅ Yes   | Complete |
+
+_No sections were skipped in this submission._
